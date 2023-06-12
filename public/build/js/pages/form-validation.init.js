@@ -1,32 +1,32 @@
-/*
-Template Name: Skote - Admin & Dashboard Template
-Author: Themesbrand
-Website: https://themesbrand.com/
-Contact: themesbrand@gmail.com
-File: Form validation Js File
-*/
-
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
+(function () {
 	'use strict';
-	window.addEventListener('load', function() {
-		// Fetch all the forms we want to apply custom Bootstrap validation styles to
+	window.addEventListener('load', function () {
 		var forms = document.getElementsByClassName('needs-validation');
-		// Loop over them and prevent submission
-		var validation = Array.prototype.filter.call(forms, function(form) {
-		form.addEventListener('submit', function(event) {
-			if (form.checkValidity() === false) {
-			event.preventDefault();
-			event.stopPropagation();
-			}
-			form.classList.add('was-validated');
-		}, false);
+		var validation = Array.prototype.filter.call(forms, function (form) {
+			form.addEventListener('submit', function (event) {
+				// event.preventDefault();
+				if (form.checkValidity() === false) {
+					event.preventDefault();
+					event.stopPropagation();
+				} else {
+					signin();
+				}
+				form.classList.add('was-validated');
+			}, false);
 		});
 	}, false);
 })();
 
 
 // parsley validation
-$(document).ready(function() {
+$(document).ready(function () {
 	$('.custom-validation').parsley();
 });
+
+const signin = () => {
+	const user = $('#username').val();
+	const pass = $('#password').val();
+
+	console.log(user);
+	console.log(pass);
+}

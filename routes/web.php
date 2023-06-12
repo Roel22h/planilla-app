@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\SigninController;
+use App\Http\Controllers\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,15 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Route::get('/signin', [SigninController::class, 'signin']);
+Route::post('/login', [SigninController::class, 'login']);
+Route::get('/logout', [SigninController::class, 'logout']);
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
-
-//Update User Details
-Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
-Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
-
-Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
-
-//Language Translation
-Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
+Route::get('/index', [IndexController::class, 'index']);
