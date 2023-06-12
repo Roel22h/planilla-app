@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Rol;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 use Exception;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Usuario;
 
 class SigninController extends Controller
@@ -23,10 +23,15 @@ class SigninController extends Controller
         try {
             $username = $request->input('username');
             $password = $request->input('password');
-            $usuario = Usuario::where(['usuario' => $username, 'contrasenia' => $password])->first();
+
+            $usuario = Usuario::where(['usuario' => $username])->first();
 
             if (!$usuario) {
-                throw new Exception("Datos de acceso incorrectos.", 1);
+                throw new Exception("Usuario incorrecto.", 1);
+            }
+
+            if (!(Hash::check($password, $usuario->contrasenia))) {
+                throw new Exception("Contraseña incorrecta.", 1);
             }
 
             $rol = Rol::find($usuario->rol_id);
@@ -45,6 +50,6 @@ class SigninController extends Controller
     public function logout()
     {
         Session::flush();
-		return redirect('/signin');
+        return redirect('/signin');
     }
 }

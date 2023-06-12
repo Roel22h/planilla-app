@@ -5,6 +5,12 @@
 <script src="{{ URL::asset('build/libs/simplebar/simplebar.min.js')}}"></script>
 <script src="{{ URL::asset('build/libs/node-waves/waves.min.js')}}"></script>
 
+<!-- toastr plugin -->
+<script src="{{ URL::asset('build/libs/toastr/build/toastr.min.js') }}"></script>
+
+<!-- toastr init -->
+<script src="{{ URL::asset('/build/js/pages/toastr.init.js') }}"></script>
+
 @yield('script')
 
 <!-- App js -->

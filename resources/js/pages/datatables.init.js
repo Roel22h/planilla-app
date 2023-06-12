@@ -6,13 +6,17 @@ Contact: themesbrand@gmail.com
 File: Datatables Js File
 */
 
-$(document).ready(function() {
-    $('#datatable').DataTable();
+$(document).ready(function () {
+    $('#datatable').DataTable({
+        language: {
+            url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
+        }
+    });
 
     //Buttons examples
     var table = $('#datatable-buttons').DataTable({
         lengthChange: false,
-        buttons: ['copy', 'excel', 'pdf', 'colvis']
+        buttons: ['copy', 'excel', 'pdf', 'colvis'],
     });
 
     table.buttons().container()
