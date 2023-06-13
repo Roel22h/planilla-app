@@ -16,7 +16,7 @@
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
                             <li><a href="usuario-lista" key="t-default">@lang('Usuarios')</a></li>
-                            <li><a href="" key="t-default">@lang('Roles')</a></li>
+                            <li><a href="rol-lista" key="t-default">@lang('Roles')</a></li>
                         </ul>
                     </li>
                 @endif

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\SigninController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\RolController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +30,10 @@ Route::get('/usuario-lista', [UsuarioController::class, 'lista']);
 Route::post('/usuario-agregar', [UsuarioController::class, 'agregar']);
 Route::post('/usuario-buscar', [UsuarioController::class, 'buscar']);
 Route::post('/usuario-editar', [UsuarioController::class, 'editar']);
+
+
+// ROLES
+Route::get('/rol-lista', [RolController::class, 'lista']);
+Route::post('/rol-agregar', [RolController::class, 'agregar']);
+Route::post('/rol-buscar', [RolController::class, 'buscar']);
+Route::post('/rol-editar', [RolController::class, 'editar']);
