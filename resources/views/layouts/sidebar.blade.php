@@ -29,8 +29,7 @@
                         <span key="t-authentication">@lang('Instituciones')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="auth-login" key="t-login">@lang('Agregar')</a></li>
-                        <li><a href="auth-login-2" key="t-login-2">@lang('Lista')</a></li>
+                        <li><a href="institucion-lista" key="t-login-2">@lang('Lista')</a></li>
                     </ul>
                 </li>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\SigninController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\InstitucionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +38,9 @@ Route::get('/rol-lista', [RolController::class, 'lista']);
 Route::post('/rol-agregar', [RolController::class, 'agregar']);
 Route::post('/rol-buscar', [RolController::class, 'buscar']);
 Route::post('/rol-editar', [RolController::class, 'editar']);
+
+// INSTITUCIONES
+Route::get('/institucion-lista', [InstitucionController::class, 'lista']);
+Route::post('/institucion-agregar', [InstitucionController::class, 'agregar']);
+Route::post('/institucion-buscar', [InstitucionController::class, 'buscar']);
+Route::post('/institucion-editar', [InstitucionController::class, 'editar']);
