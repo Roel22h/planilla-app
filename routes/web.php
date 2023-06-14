@@ -7,6 +7,7 @@ use App\Http\Controllers\SigninController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\InstitucionController;
+use App\Http\Controllers\DocenteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,3 +45,9 @@ Route::get('/institucion-lista', [InstitucionController::class, 'lista']);
 Route::post('/institucion-agregar', [InstitucionController::class, 'agregar']);
 Route::post('/institucion-buscar', [InstitucionController::class, 'buscar']);
 Route::post('/institucion-editar', [InstitucionController::class, 'editar']);
+
+// DOCENTES
+Route::get('/docente-lista', [DocenteController::class, 'lista']);
+Route::post('/docente-agregar', [DocenteController::class, 'agregar']);
+Route::post('/docente-buscar', [DocenteController::class, 'buscar']);
+Route::post('/docente-editar', [DocenteController::class, 'editar']);

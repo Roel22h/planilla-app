@@ -39,8 +39,7 @@
                         <span key="t-utility">@lang('Docentes')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="pages-starter" key="t-starter-page">@lang('Agregar')</a></li>
-                        <li><a href="pages-maintenance" key="t-maintenance">@lang('Lista')</a></li>
+                        <li><a href="docente-lista" key="t-maintenance">@lang('Lista')</a></li>
                     </ul>
                 </li>
 

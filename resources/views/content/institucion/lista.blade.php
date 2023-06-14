@@ -195,6 +195,7 @@
 
             addInstitucion.on('click', function() {
                 formInstitucion[0].reset();
+                $('.edit').addClass('d-none');
                 modalTittle.html('Agregar institución');
                 modalInstitucion.modal('show');
             });

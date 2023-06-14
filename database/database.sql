@@ -42,17 +42,17 @@ create table
 create table
     `docente` (
         `id` int primary key auto_increment,
-        `intitucion_id` int not null,
+        `institucion_id` int not null,
         `dni` int unique not null,
         `nombres` varchar(255) unique not null,
         `apellidos` varchar(255) not null,
         `direccion` text,
-        `telefono` int,
+        `telefono` varchar(255),
         `asignatura` varchar(255) not null,
         `estado` bool not null default true,
         `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        foreign key (`intitucion_id`) references `institucion`(`id`)
+        foreign key (`institucion_id`) references `institucion`(`id`)
     );
 
 create table

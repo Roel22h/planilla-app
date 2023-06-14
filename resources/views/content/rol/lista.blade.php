@@ -151,6 +151,7 @@
 
             addRol.on('click', function() {
                 formRol[0].reset();
+                $('.edit').addClass('d-none');
                 modalTittle.html('Agregar rol');
                 modalRol.modal('show');
             });
