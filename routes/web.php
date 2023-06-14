@@ -8,6 +8,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\DocenteController;
+use App\Http\Controllers\CicloEscolarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,3 +52,8 @@ Route::get('/docente-lista', [DocenteController::class, 'lista']);
 Route::post('/docente-agregar', [DocenteController::class, 'agregar']);
 Route::post('/docente-buscar', [DocenteController::class, 'buscar']);
 Route::post('/docente-editar', [DocenteController::class, 'editar']);
+
+
+// CICLO ESCOLAR
+Route::get('/ciclo-agregar', [CicloEscolarController::class, 'agregar']);
+Route::post('/ciclo-insertar', [CicloEscolarController::class, 'insertar']);

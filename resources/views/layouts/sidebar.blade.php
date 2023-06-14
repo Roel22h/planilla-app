@@ -51,7 +51,7 @@
                         <span key="t-multi-level">@lang('Ciclo escolar')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="javascript: void(0);" key="t-level-1-1">@lang('Agregar')</a></li>
+                        <li><a href="ciclo-agregar" key="t-level-1-1">@lang('Agregar')</a></li>
                         <li><a href="javascript: void(0);" key="t-level-1-1">@lang('Lista')</a></li>
                     </ul>
                 </li>

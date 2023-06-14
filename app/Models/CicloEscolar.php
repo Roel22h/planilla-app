@@ -22,7 +22,7 @@ class CicloEscolar extends Model
 
 	protected $fillable = [
 		'id',
-		'descripcion',
+		'description',
 		'inicio',
 		'fin',
 		'estado'
