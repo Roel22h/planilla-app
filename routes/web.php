@@ -57,3 +57,5 @@ Route::post('/docente-editar', [DocenteController::class, 'editar']);
 // CICLO ESCOLAR
 Route::get('/ciclo-agregar', [CicloEscolarController::class, 'agregar']);
 Route::post('/ciclo-insertar', [CicloEscolarController::class, 'insertar']);
+Route::get('/ciclo-lista', [CicloEscolarController::class, 'lista']);
+Route::post('/ciclo-finalizar', [CicloEscolarController::class, 'finalizar']);

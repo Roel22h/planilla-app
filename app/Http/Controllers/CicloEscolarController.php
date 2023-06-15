@@ -31,7 +31,7 @@ class CicloEscolarController extends Controller
             $cicloEscolar = CicloEscolar::where('fin', '>=', $cicloData['inicio'])->first();
 
             if ($cicloEscolar) {
-                throw new Exception("Ya existe una institución con el mismo codigo", 1);
+                throw new Exception("La fecha de inicio entrra en conflicto con otra ciclo anterior.", 1);
             }
 
             $newCicloEscolar = new CicloEscolar();
@@ -40,6 +40,41 @@ class CicloEscolarController extends Controller
 
             DB::commit();
             return response()->json('Ciclo escolar registrado correctamente', 200);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return response()->json($th->getMessage(), 500);
+        }
+    }
+
+    public function lista()
+    {
+        $ciclos = CicloEscolar::all();
+
+        $data = [
+            'ciclos' => $ciclos
+        ];
+
+        return view('content.cicloEscolar.lista', $data);
+    }
+
+    public function finalizar(Request $request)
+    {
+        DB::beginTransaction();
+
+        try {
+            $id = $request->input('id');
+
+            $cicloEscolar = CicloEscolar::where('id', $id)->first();
+            if (!$cicloEscolar) {
+                throw new Exception("Ciclo escolar no identificado", 1);
+            }
+
+            $cicloEscolar = CicloEscolar::find($id);
+            $cicloEscolar->estado = 0;
+            $cicloEscolar->save();
+
+            DB::commit();
+            return response()->json('Ciclo escolar finalizado correctamente.', 200);
         } catch (\Throwable $th) {
             DB::rollBack();
             return response()->json($th->getMessage(), 500);

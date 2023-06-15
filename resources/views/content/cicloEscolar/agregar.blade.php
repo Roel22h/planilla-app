@@ -93,6 +93,8 @@
                 } else {
                     desc = `Ciclo escolar ${inicio.val()}`;
                     fin.removeAttr('readonly');
+                    fin.attr('min', inicio.val());
+                    fin.val('');
                 }
 
                 descripcion.val(desc);
