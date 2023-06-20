@@ -10,6 +10,7 @@ use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\CicloEscolarController;
 use App\Http\Controllers\RegiPlanillaController;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,3 +69,5 @@ Route::get('/planilla-lista', [RegiPlanillaController::class, 'lista']);
 Route::get('/storage/{ruta}', function ($ruta) {
     return response()->download(storage_path('app/' . $ruta));
 })->where('ruta', '.*');
+
+Route::redirect('/', '/signin');

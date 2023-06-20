@@ -38,11 +38,6 @@ class Docente extends Model
 		return $this->belongsTo(Institucion::class);
 	}
 
-	public function pagos(): HasMany
-	{
-		return $this->hasMany(Pago::class);
-	}
-
 	public function regiPlanillas(): HasMany
 	{
 		return $this->hasMany(RegiPlanilla::class);

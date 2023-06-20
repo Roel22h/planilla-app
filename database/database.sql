@@ -84,20 +84,3 @@ create table
         foreign key (`docente_id`) references `docente`(`id`),
         foreign key (`ciclo_escolar_id`) references `ciclo_escolar`(`id`)
     );
-
-create table
-    `pago` (
-        `id` int primary key auto_increment,
-        `usuario_id` int not null,
-        `docente_id` int not null,
-        `ciclo_escolar_id` int not null,
-        `monto` double(14, 2) not null,
-        `observacion` text,
-        `fecha` datetime not null,
-        `estado` bool not null default true,
-        `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        foreign key (`usuario_id`) references `usuario`(`id`),
-        foreign key (`docente_id`) references `docente`(`id`),
-        foreign key (`ciclo_escolar_id`) references `ciclo_escolar`(`id`)
-    );

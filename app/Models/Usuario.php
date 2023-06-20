@@ -39,11 +39,6 @@ class Usuario extends Model
 		return $this->belongsTo(Rol::class);
 	}
 
-	public function pagos(): HasMany
-	{
-		return $this->hasMany(Pago::class);
-	}
-
 	public function regiPlanillas(): HasMany
 	{
 		return $this->hasMany(RegiPlanilla::class);
