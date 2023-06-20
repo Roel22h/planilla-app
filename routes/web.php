@@ -22,20 +22,18 @@ use App\Http\Controllers\RegiPlanillaController;
 |
 */
 
+Route::get('/index', [IndexController::class, 'index']);
+
 // LOGIN
 Route::get('/signin', [SigninController::class, 'signin']);
 Route::post('/login', [SigninController::class, 'login']);
 Route::get('/logout', [SigninController::class, 'logout']);
-
-// INDEX
-Route::get('/index', [IndexController::class, 'index']);
 
 // USUARIOS
 Route::get('/usuario-lista', [UsuarioController::class, 'lista']);
 Route::post('/usuario-agregar', [UsuarioController::class, 'agregar']);
 Route::post('/usuario-buscar', [UsuarioController::class, 'buscar']);
 Route::post('/usuario-editar', [UsuarioController::class, 'editar']);
-
 
 // ROLES
 Route::get('/rol-lista', [RolController::class, 'lista']);
@@ -70,5 +68,3 @@ Route::get('/planilla-lista', [RegiPlanillaController::class, 'lista']);
 Route::get('/storage/{ruta}', function ($ruta) {
     return response()->download(storage_path('app/' . $ruta));
 })->where('ruta', '.*');
-
-// Route::post('/ciclo-finalizar', [CicloEscolarController::class, 'finalizar']);
