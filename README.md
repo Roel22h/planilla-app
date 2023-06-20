@@ -73,10 +73,15 @@ Necesario: Composer, NodeJS, GIT, MYSQL
 4. php artisan key:generate
 
 DB_CONNECTION=mysql
+
 DB_HOST=127.0.0.1
+
 DB_PORT=3306
+
 DB_DATABASE=planilla-app
+
 DB_USERNAME=root
+
 DB_PASSWORD=
 
 5. RUN: database/database.sql and database/seeder.sql
