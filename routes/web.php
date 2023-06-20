@@ -9,6 +9,8 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\CicloEscolarController;
+use App\Http\Controllers\RegiPlanillaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,3 +61,14 @@ Route::get('/ciclo-agregar', [CicloEscolarController::class, 'agregar']);
 Route::post('/ciclo-insertar', [CicloEscolarController::class, 'insertar']);
 Route::get('/ciclo-lista', [CicloEscolarController::class, 'lista']);
 Route::post('/ciclo-finalizar', [CicloEscolarController::class, 'finalizar']);
+
+// CICLO ESCOLAR
+Route::get('/planilla-agregar', [RegiPlanillaController::class, 'agregar']);
+Route::post('/planilla-insertar', [RegiPlanillaController::class, 'insertar']);
+Route::get('/planilla-lista', [RegiPlanillaController::class, 'lista']);
+
+Route::get('/storage/{ruta}', function ($ruta) {
+    return response()->download(storage_path('app/' . $ruta));
+})->where('ruta', '.*');
+
+// Route::post('/ciclo-finalizar', [CicloEscolarController::class, 'finalizar']);

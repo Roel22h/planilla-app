@@ -26,7 +26,9 @@ class RegiPlanilla extends Model
 		'docente_id',
 		'ciclo_escolar_id',
 		'description',
-		'extencion',
+		'monto',
+		'fecha',
+		'ruta',
 		'observacion',
 		'estado'
 	];

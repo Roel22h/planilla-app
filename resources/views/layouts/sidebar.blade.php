@@ -59,11 +59,11 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-share-alt"></i>
-                        <span key="t-multi-level">@lang('Ciclo escolar')</span>
+                        <span key="t-multi-level">@lang('Planilla')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="javascript: void(0);" key="t-level-1-1">@lang('Pagos')</a></li>
-                        <li><a href="javascript: void(0);" key="t-level-1-1">@lang('Planillas')</a></li>
+                        <li><a href="planilla-agregar" key="t-level-1-1">@lang('Agregar')</a></li>
+                        <li><a href="planilla-lista" key="t-level-1-1">@lang('lista')</a></li>
                     </ul>
                 </li>
 
