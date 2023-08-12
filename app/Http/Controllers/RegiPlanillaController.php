@@ -38,7 +38,9 @@ class RegiPlanillaController extends Controller
             $newRegiPlanilla->docente_id = $request->input('docente_id');
             $newRegiPlanilla->ciclo_escolar_id = $request->input('ciclo_escolar_id');
             $newRegiPlanilla->description = $request->input('description');
-            $newRegiPlanilla->monto = $request->input('monto');
+            $newRegiPlanilla->imponible = $request->input('imponible');
+            $newRegiPlanilla->haberes = $request->input('haberes');
+            $newRegiPlanilla->liquido = $request->input('liquido');
             $newRegiPlanilla->fecha = $request->input('fecha');
             $newRegiPlanilla->ruta = $path;
             $newRegiPlanilla->observacion = $request->input('observacion');

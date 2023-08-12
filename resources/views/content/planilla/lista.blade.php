@@ -37,7 +37,9 @@
                                 <th>Docente</th>
                                 <th>Ciclo escolar</th>
                                 <th>Descripcion</th>
-                                <th>Monto</th>
+                                <th>Mnt. Imponible</th>
+                                <th>Mnt. Haberes</th>
+                                <th>Mnt. Liquido</th>
                                 <th>Fecha</th>
                                 <th>Arch.</th>
                                 <th>Observacion</th>
@@ -52,7 +54,9 @@
                                     <td>{{ $pago->docente->nombres .' ' .$pago->docente->apellidos }}</td>
                                     <td>{{ $pago->cicloEscolar->description }}</td>
                                     <td>{{ $pago->description }}</td>
-                                    <td>{{ $pago->monto }}</td>
+                                    <td>{{ $pago->imponible }}</td>
+                                    <td>{{ $pago->haberes }}</td>
+                                    <td>{{ $pago->liquido }}</td>
                                     <td>{{ $pago->fecha }}</td>
                                     {{-- <td><a href="{{ Storage::url($pago->ruta) }}">Descargar archivo</a></td> --}}
                                     <td><a href="{{ url('/storage/' . $pago->ruta) }}">Descargar archivo</a></td>
