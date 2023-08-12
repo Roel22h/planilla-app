@@ -45,7 +45,7 @@
 
                 <li class="menu-title" key="t-components">@lang('Operaciones')</li>
 
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-share-alt"></i>
                         <span key="t-multi-level">@lang('Ciclo escolar')</span>
@@ -54,7 +54,7 @@
                         <li><a href="ciclo-agregar" key="t-level-1-1">@lang('Agregar')</a></li>
                         <li><a href="ciclo-lista" key="t-level-1-1">@lang('Lista')</a></li>
                     </ul>
-                </li>
+                </li> --}}
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">

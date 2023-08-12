@@ -41,7 +41,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-6 mb-3">
+						{{-- <div class="col-6 mb-3">
 							<label for="ciclo_escolar_id">Ciclo escolar</label>
 							<select name="ciclo_escolar_id" id="ciclo_escolar_id" class="form-select">
 								<option value="" style="display: none"></option>
@@ -51,8 +51,8 @@
 								@endforeach
 							</select>
 							<div class="invalid-feedback"></div>
-						</div>
-						<div class="col-6">
+						</div> --}}
+						<div class="col-12 mb-3">
 							<label for="archivo">Archivo</label>
 							<input class="form-control" type="file" accept=".pdf,.jpg,.png" id="inparchivo" required>
 							<div class="invalid-feedback"></div>
@@ -71,14 +71,15 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-6">
+						<div class="col-6 mb-3">
 							<label for="liquido">Mnt. Liquido</label>
 							<input class="form-control" type="number" min="1" id="liquido" name="liquido">
 							<div class="invalid-feedback"></div>
 						</div>
 						<div class="col-6">
-							<label for="fecha">Mes</label>
-							<select name="fecha" id="fecha" class="form-select"></select>
+							<label for="fecha">Fecha</label>
+							{{-- <select name="fecha" id="fecha" class="form-select"></select> --}}
+                            <input type="date" class="form-control" id="fecha">
 							<div class="invalid-feedback"></div>
 						</div>
 					</div>
@@ -135,21 +136,21 @@
 				$(this).removeClass('is-invalid');
 			});
 
-			ciclo.on('input', function() {
-				$(this).removeClass('is-invalid');
+			// ciclo.on('input', function() {
+			// 	$(this).removeClass('is-invalid');
 
-				const fechaInicio = $(this).find('option:selected').data('inicio');
-				const fechaFIn = $(this).find('option:selected').data('fin');
+			// 	const fechaInicio = $(this).find('option:selected').data('inicio');
+			// 	const fechaFIn = $(this).find('option:selected').data('fin');
 
-				const meses = obtenerMesesEntreFechas(fechaInicio, fechaFIn)
-				fecha.empty();
-				const anioActual = new Date().getFullYear();
-				$.each(meses, function(index, mes) {
-					const opcion = $('<option></option>').text(mes + ' ' + anioActual).val(mes +
-						' ' + anioActual);
-					fecha.append(opcion);
-				});
-			});
+			// 	const meses = obtenerMesesEntreFechas(fechaInicio, fechaFIn)
+			// 	fecha.empty();
+			// 	const anioActual = new Date().getFullYear();
+			// 	$.each(meses, function(index, mes) {
+			// 		const opcion = $('<option></option>').text(mes + ' ' + anioActual).val(mes +
+			// 			' ' + anioActual);
+			// 		fecha.append(opcion);
+			// 	});
+			// });
 
 			btnguardar.on('click', function() {
 				if (!isValid()) {
@@ -227,7 +228,7 @@
 					formData.append('docente_id', docente.val());
 					formData.append('ciclo_escolar_id', ciclo.val());
 					formData.append('description', description.val());
-                    formData.append('imponible', imponible.val());
+					formData.append('imponible', imponible.val());
 					formData.append('haberes', haberes.val());
 					formData.append('liquido', liquido.val());
 					formData.append('fecha', fecha.val());
