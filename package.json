@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "bootstrap": "^5.2.0",
+        "jqwidgets-scripts": "^17.0.1",
         "vite-plugin-static-copy": "^0.13.1"
     }
 }

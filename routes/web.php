@@ -10,6 +10,7 @@ use App\Http\Controllers\InstitucionController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\CicloEscolarController;
 use App\Http\Controllers\RegiPlanillaController;
+use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Redirect;
 
 /*
@@ -71,3 +72,8 @@ Route::get('/storage/{ruta}', function ($ruta) {
 })->where('ruta', '.*');
 
 Route::redirect('/', '/signin');
+
+
+// REPORTES
+Route::get('/reporte-docentes', [ReporteController::class, 'docente']);
+Route::post('/reporte-getdocentes', [ReporteController::class, 'docentelista']);
