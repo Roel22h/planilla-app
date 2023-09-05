@@ -17,7 +17,7 @@
                         <img src="{{ URL::asset('/build/images/logo-uni.jpg') }}" alt="" height="22">
                     </span> --}}
                     <span class="logo-lg">
-                        <img src="{{ URL::asset('/build/images/logo-uni.jpg') }}" alt="" height="30">
+                        <img src="{{ URL::asset('/build/images/logo_drea.png') }}" alt="" height="30">
                     </span>
                 </a>
             </div>

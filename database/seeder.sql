@@ -64,4 +64,4 @@ SELECT
     `observacion`,
     `rp`.`estado`
 FROM `regi_planilla` `rp`
-    JOIN `docente` `d` ON `d`.`id` = `rp`.`docente_id`
+    JOIN `docente` `d` ON `d`.`id` = `rp`.`docente_id`;
