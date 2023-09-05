@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Pagination;
 use App\Models\Docente;
+use App\Models\jqxDocente;
 use Illuminate\Http\Request;
 
 class ReporteController extends Controller
@@ -18,18 +19,18 @@ class ReporteController extends Controller
         try {
             $jqxParams = $request->all();
 
-            $JqxgridQuotation = new jqxgridSale();
+            $JqxgridQuotation = new jqxDocente();
             $totalColumns = [];
 
-            [$rows, $totalrecords, $summedColumns] = Pagination::paginate($JqxgridQuotation, $jqxParams, $totalColumns);
+            [$rows, $totalrecords, $summedColumns] = Pagination::paginate($JqxgridQuotation, $jqxParams, $totalColumns, false);
 
             $data = [
-				'docentes' => $rows,
-				'jqxParams' => $jqxParams,
-				'totalrecords' => $totalrecords,
-				'summedColumns' => $summedColumns,
-				'message' => null
-			];
+                'docentes' => $rows,
+                'jqxParams' => $jqxParams,
+                'totalrecords' => $totalrecords,
+                'summedColumns' => $summedColumns,
+                'message' => null
+            ];
 
             return response()->json($data, 200);
         } catch (\Throwable $th) {

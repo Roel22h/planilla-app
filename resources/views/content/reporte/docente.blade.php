@@ -26,6 +26,12 @@
 
 	<div class="row">
 		<div class="col-12">
+			<button id="btnExportar" class="btn btn-outline-primary">Exportar</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12">
 			<div class="card">
 				<div class="card-body">
 					<div id="jqxtable"></div>
@@ -59,7 +65,12 @@
 	<script>
 		jQuery(function() {
 			const jqxTable = document.getElementById('jqxtable');
+			const btnExportar = document.getElementById('btnExportar');
 			initTable(jqxTable);
+
+			btnExportar.addEventListener('click', async function() {
+				prin_document(jqxTable, 'reporte docentes')
+			});
 		});
 	</script>
 @endsection
