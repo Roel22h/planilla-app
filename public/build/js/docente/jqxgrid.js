@@ -159,7 +159,6 @@ const _cleanLocalStorage = (jqxTable) => {
     localStorage.setItem(`jqxGrid${id}`, JSON.stringify(updatedData));
 }
 
-
 const print_popup = (link_) => {
     const link = link_;
     const ancho = 830;
@@ -174,7 +173,6 @@ const print_popup = (link_) => {
         "");
     return _popup;
 }
-
 
 const prin_document = (jqxTable, title) => {
     const gridContent = $(jqxTable).jqxGrid('exportdata', 'html').replace(/font-size:10px;/g, "").replace(/formatString:;dataType:string;/g, "").replace(/height:[^;]*;/g, "");

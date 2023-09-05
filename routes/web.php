@@ -77,3 +77,6 @@ Route::redirect('/', '/signin');
 // REPORTES
 Route::get('/reporte-docentes', [ReporteController::class, 'docente']);
 Route::post('/reporte-getdocentes', [ReporteController::class, 'docentelista']);
+
+Route::get('/reporte-instituciones', [ReporteController::class, 'institucion']);
+Route::post('/reporte-getinstituciones', [ReporteController::class, 'institucionlista']);

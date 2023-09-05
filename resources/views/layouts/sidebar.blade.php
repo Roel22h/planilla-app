@@ -74,6 +74,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="reporte-docentes" key="t-level-1-1">@lang('Docentes')</a></li>
+                        <li><a href="reporte-instituciones" key="t-level-1-1">@lang('Instituciones')</a></li>
                     </ul>
                 </li>
 

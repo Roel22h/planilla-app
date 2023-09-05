@@ -1,6 +1,6 @@
 const initTable = async (jqxTable) => {
-    const url = 'reporte-getdocentes';
-    const root = 'docentes';
+    const url = 'reporte-getinstituciones';
+    const root = 'instituciones';
 
     const source = jqxDefaultSource(url, root, _datafields());
     const dataAdapter = jqxDefaultDataAdapter(source, jqxTable);
@@ -10,59 +10,29 @@ const initTable = async (jqxTable) => {
 
 const _datafields = () => {
     return [
-        { name: 'intitucion-descripcion', type: 'string' },
-        { name: 'dni', type: 'string' },
-        { name: 'nombres', type: 'string' },
-        { name: 'apellidos', type: 'string' },
-        { name: 'direccion', type: 'string' },
-        { name: 'telefono', type: 'string' },
-        { name: 'asignatura', type: 'string' },
-        { name: 'estado', type: 'string' }
+        { name: 'codigo', type: 'string' },
+        { name: 'descripcion', type: 'string' },
+        { name: 'niveles', type: 'string' }
     ];
 }
 
 const _columns = () => {
     return [
         {
-            datafield: 'intitucion-descripcion',
-            text: 'Institucion',
+            datafield: 'codigo',
+            text: 'Codigo',
             cellsalign: 'left',
         },
         {
-            datafield: 'dni',
-            text: 'Numero documento',
+            datafield: 'descripcion',
+            text: 'Descripcion',
             cellsalign: 'left',
         },
         {
-            datafield: 'nombres',
-            text: 'Nombres',
+            datafield: 'niveles',
+            text: 'Niveles',
             cellsalign: 'left',
-        },
-        {
-            datafield: 'apellidos',
-            text: 'Apellidos',
-            cellsalign: 'left',
-        },
-        {
-            datafield: 'direccion',
-            text: 'Direccion',
-            cellsalign: 'left',
-        },
-        {
-            datafield: 'telefono',
-            text: 'Telefono',
-            cellsalign: 'left',
-        },
-        {
-            datafield: 'asignatura',
-            text: 'Asignatura',
-            cellsalign: 'left',
-        },
-        {
-            datafield: 'estado',
-            text: 'EStado',
-            cellsalign: 'left',
-        },
+        }
     ];
 }
 
