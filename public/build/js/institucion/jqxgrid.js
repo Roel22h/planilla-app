@@ -76,7 +76,7 @@ const jqxDefaultInit = (jqxTable, dataAdapter) => {
         virtualmode: true,
         filterable: true,
         showfilterrow: true,
-        sortable: true,
+        sortable: false,
         columnsresize: true,
         // autosavestate: true,
         // autoloadstate: true,

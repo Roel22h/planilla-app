@@ -59,12 +59,18 @@ const _columns = () => {
         {
             datafield: 'fecha',
             text: 'Fecha',
-            cellsalign: 'left',
+            cellsalign: 'center',
+            cellsformat: 'dd-MM-yyyy',
+            filtertype: 'range',
+            columntype: 'datetimeinput'
         },
         {
             datafield: 'ruta',
             text: 'Archivo',
             cellsalign: 'left',
+            cellsrenderer: function (row, columnfield, value) {
+                return '<div style="font-weight: bold; margin: 3px;"><a href="' + window.location.origin + '/storage/' + value + '">Descargar archivo</a></div>';
+            }
         },
         {
             datafield: 'observacion',
@@ -114,7 +120,7 @@ const jqxDefaultInit = (jqxTable, dataAdapter) => {
         virtualmode: true,
         filterable: true,
         showfilterrow: true,
-        sortable: true,
+        sortable: false,
         columnsresize: true,
         // autosavestate: true,
         // autoloadstate: true,
@@ -183,7 +189,55 @@ const print_popup = (link_) => {
 }
 
 const prin_document = (jqxTable, title) => {
-    const gridContent = $(jqxTable).jqxGrid('exportdata', 'html').replace(/font-size:10px;/g, "").replace(/formatString:;dataType:string;/g, "").replace(/height:[^;]*;/g, "");
+    let gridContent = $(jqxTable).jqxGrid('exportdata', 'html').replace(/font-size:10px;/g, "").replace(/formatString:;dataType:string;/g, "").replace(/height:[^;]*;/g, "");
+
+    // Crear un objeto DOMParser
+    var parser = new DOMParser();
+
+    // Analizar el contenido HTML
+    var doc = parser.parseFromString(gridContent, 'text/html');
+
+    // Eliminar la columna de cabecera <th>Archivo</th>
+    var table = doc.querySelector('table');
+    if (table) {
+        var headerRow = table.querySelector('thead tr');
+        var headerCells = headerRow.querySelectorAll('th');
+
+        // Encontrar la columna que contiene "<th>Archivo</th>"
+        var columnIndexToRemove = -1;
+        for (var i = 0; i < headerCells.length; i++) {
+            if (headerCells[i].textContent.trim() === 'Archivo') {
+                columnIndexToRemove = i;
+                break;
+            }
+        }
+
+        if (columnIndexToRemove >= 0) {
+            // Eliminar la columna de la cabecera
+            headerRow.removeChild(headerCells[columnIndexToRemove]);
+        }
+    }
+
+    // Seleccionar todas las filas en el cuerpo de la tabla
+    var rows = doc.querySelectorAll('tbody tr');
+
+    // Iterar a través de las filas
+    rows.forEach(function (row) {
+        // Obtener todas las celdas de la fila
+        var cells = row.querySelectorAll('td');
+
+        // Verificar si hay al menos dos celdas en la fila antes de intentar eliminar la penúltima
+        if (cells.length >= 2) {
+            // Obtener la penúltima celda y eliminarla
+            var penultimateCell = cells[cells.length - 2];
+            row.removeChild(penultimateCell);
+        }
+    });
+
+    // Obtener el HTML modificado
+    gridContent = doc.documentElement.outerHTML;
+
+
 
     const newWindow = print_popup('');
     const document_ = newWindow.document.open();
