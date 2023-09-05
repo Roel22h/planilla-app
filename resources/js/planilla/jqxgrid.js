@@ -1,6 +1,6 @@
 const initTable = async (jqxTable) => {
-    const url = 'reporte-getinstituciones';
-    const root = 'instituciones';
+    const url = 'reporte-getplanillas';
+    const root = 'planillas';
 
     const source = jqxDefaultSource(url, root, _datafields());
     const dataAdapter = jqxDefaultDataAdapter(source, jqxTable);
@@ -10,29 +10,67 @@ const initTable = async (jqxTable) => {
 
 const _datafields = () => {
     return [
-        { name: 'codigo', type: 'string' },
-        { name: 'descripcion', type: 'string' },
-        { name: 'niveles', type: 'string' }
+        { name: 'dni', type: 'string' },
+        { name: 'nombres', type: 'string' },
+        { name: 'apellidos', type: 'string' },
+        { name: 'description', type: 'string' },
+        { name: 'imponible', type: 'string' },
+        { name: 'haberes', type: 'string' },
+        { name: 'liquido', type: 'string' },
+        { name: 'fecha', type: 'string' },
+        { name: 'ruta', type: 'string' },
+        { name: 'observacion', type: 'string' },
+        { name: 'estado', type: 'string' }
     ];
 }
 
 const _columns = () => {
     return [
         {
-            datafield: 'codigo',
-            text: 'Codigo',
+            datafield: 'nombres',
+            text: 'Nombres',
             cellsalign: 'left',
         },
         {
-            datafield: 'descripcion',
+            datafield: 'apellidos',
+            text: 'Apellidos',
+            cellsalign: 'left',
+        },
+        {
+            datafield: 'description',
             text: 'Descripcion',
             cellsalign: 'left',
         },
         {
-            datafield: 'niveles',
-            text: 'Niveles',
+            datafield: 'imponible',
+            text: 'Imponible',
             cellsalign: 'left',
-        }
+        },
+        {
+            datafield: 'haberes',
+            text: 'Haberes',
+            cellsalign: 'left',
+        },
+        {
+            datafield: 'liquido',
+            text: 'Liquido',
+            cellsalign: 'left',
+        },
+        {
+            datafield: 'fecha',
+            text: 'Fecha',
+            cellsalign: 'left',
+        },
+        {
+            datafield: 'ruta',
+            text: 'Archivo',
+            cellsalign: 'left',
+        },
+        {
+            datafield: 'observacion',
+            text: 'Observacion',
+            cellsalign: 'left',
+        },
     ];
 }
 

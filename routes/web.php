@@ -80,3 +80,6 @@ Route::post('/reporte-getdocentes', [ReporteController::class, 'docentelista']);
 
 Route::get('/reporte-instituciones', [ReporteController::class, 'institucion']);
 Route::post('/reporte-getinstituciones', [ReporteController::class, 'institucionlista']);
+
+Route::get('/reporte-planillas', [ReporteController::class, 'planilla']);
+Route::post('/reporte-getplanillas', [ReporteController::class, 'planillalista']);

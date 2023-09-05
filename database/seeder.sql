@@ -31,7 +31,8 @@ values (
         '$2y$10$m4Ru6tAzgDo2oTVjKRMijOBavffbNho9my5pvYeEq6jRqJtMxutf.'
     );
 
-CREATE VIEW `jqxgrid_docente` AS
+CREATE VIEW
+    `jqxgrid_docente` AS
 SELECT
     `d`.`id`,
     `institucion_id`,
@@ -44,4 +45,23 @@ SELECT
     `asignatura`,
     `d`.`estado`
 FROM `docente` `d`
-    JOIN `institucion` `i` ON `i`.`id` = `d`.`institucion_id`
+    JOIN `institucion` `i` ON `i`.`id` = `d`.`institucion_id`;
+
+CREATE VIEW
+    `jqxgrid_planilla` AS
+SELECT
+    `rp`.`id`,
+    `docente_id`,
+    `d`.`dni`,
+    `d`.`nombres`,
+    `d`.`apellidos`,
+    `rp`.`description`,
+    `imponible`,
+    `haberes`,
+    `liquido`,
+    `fecha`,
+    `ruta`,
+    `observacion`,
+    `rp`.`estado`
+FROM `regi_planilla` `rp`
+    JOIN `docente` `d` ON `d`.`id` = `rp`.`docente_id`

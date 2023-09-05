@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Pagination;
-use App\Models\Docente;
 use App\Models\Institucion;
 use App\Models\jqxDocente;
+use App\Models\jqxPlanilla;
 use Illuminate\Http\Request;
 
 class ReporteController extends Controller
@@ -71,7 +71,42 @@ class ReporteController extends Controller
             return response()->json($data, 200);
         } catch (\Throwable $th) {
             $data = [
-                'sales' => null,
+                'planillas' => null,
+                'totalrecords' => 0,
+                'message' => $th->getMessage()
+            ];
+
+            return response()->json($data, 500);
+        }
+    }
+
+    function planilla()
+    {
+        return view('content.reporte.planilla');
+    }
+
+    function planillalista(Request $request)
+    {
+        try {
+            $jqxParams = $request->all();
+
+            $JqxPlanilla = new jqxPlanilla();
+            $totalColumns = [];
+
+            [$rows, $totalrecords, $summedColumns] = Pagination::paginate($JqxPlanilla, $jqxParams, $totalColumns, false);
+
+            $data = [
+                'planillas' => $rows,
+                'jqxParams' => $jqxParams,
+                'totalrecords' => $totalrecords,
+                'summedColumns' => $summedColumns,
+                'message' => null
+            ];
+
+            return response()->json($data, 200);
+        } catch (\Throwable $th) {
+            $data = [
+                'planillas' => null,
                 'totalrecords' => 0,
                 'message' => $th->getMessage()
             ];
